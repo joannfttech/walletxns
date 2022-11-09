@@ -1,0 +1,27 @@
+const APIKEY = 'ckey_cd4eacd21e2d455d9a106d35acb';
+
+function getData() {
+const address = '0x519fC03bDF8e496De267F1fD5c50d29d14413973';
+const chainId = '1';
+const url = new URL(`https://api.covalenthq.com/v1/1/address/{address}/transactions_v2/`);
+
+url.search = new URLSearchParams({
+    key: APIKEY
+    quote-currency: CAD
+    format: JSON
+    block-signed-at-asc: false
+    no-logs: false
+})
+
+// use fetch API to get Covalent data
+fetch(url)
+.then((resp) => resp.json())
+.then(function(data) {
+    const result = data.data;
+
+    console.log(result)
+    return result
+    }
+)}
+
+getData();
